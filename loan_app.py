@@ -33,6 +33,19 @@ df = load_data()
 st.sidebar.title("LOAN APPROVAL ANALYSIS")
 st.sidebar.write("DATA EXPLORATION AND VISUALIZATION")
 df.columns=df.columns.str.strip()
+graph = st.sidebar.selectbox(
+    "SELECT GRAPH",
+    [
+    "BOX PLOT",
+    "HISTOGRAM",
+    "PARALLEL COORDINATES",
+    "SUNBURST GRAPH",
+    "TREEMAP",
+    "SCATTER GRAPH",
+    "PIE GRAPH",
+    "HEATMAP GRAPH"
+    ]
+)
 st.divider()
 if page == "COLUMN NAMES":
     st.subheader("COLUMNS NAME")
@@ -60,7 +73,6 @@ elif page == "MISSING VALUES":
     st.dataframe(df.isnull().sum())
     st.divider()
 elif page == "GRAPHS":
-    graph = st.sidebar.selectbox("SELECT GRAPH",["BOX PLOT","HISTOGRAM","PARALLEL COORDINATES","SUNBURST GRAPH","TREEMAP","SCATTER GRAPH","PIE GRAPH","HEATMAP GRAPH"])
     if graph == "BOX PLOT":
         st.subheader("BOX PLOT")
         fig = px.box(df, x="loan_status", y="income_annum",color="education", points="all",title="Income distribution by Loan status")
