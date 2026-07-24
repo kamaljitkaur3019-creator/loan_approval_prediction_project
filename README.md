@@ -125,7 +125,7 @@ streamlit run loan_app.py
 - 'README.md' - Project documentation
 ---
 ## 📷 DASHBOARD PREVIEW
-![Loan Approval Dashboard](images/dashboard.jpeg)
+![Loan Approval Dashboard](dashboard.jpeg)
 ---
 ## 📌 CONCLUSION
 This project demonstrates how data analysis and interactive visualizations can help understand the factors affecting loan approval. The dashboard provides clear insights into applicant information and loan approval trends.
