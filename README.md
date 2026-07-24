@@ -12,8 +12,8 @@ The main objectives of this project are:
 ## 📂 DATASET
 - **Dataset Name:** LOAN APPROVAL DATASET
 - **SOURCE:** Kaggle
-- **ROWS:** 4269
-- **FEATURES:** 13 Columns including income, loan amount, education, CIBIL score, assets and loan status.
+- **ROWS:** 4269 Rows
+- **FEATURES:** 13 Columns
 ---
 ## 🛠️ TECHNOLOGIES USED 
 - Python
