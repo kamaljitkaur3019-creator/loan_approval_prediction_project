@@ -1,5 +1,5 @@
 # 🏦 LOAN APPROVAL ANALYSIS PROJECT
-## 📌 PROJECT OVERVIEW
+📌 **PROJECT OVERVIEW**
 This project analysis a loan approval dataset to understand the factors that affect loan approval decisions. The project includes data exploration, data cleaning and interactive visualizations created using Python and Streamlit.
 ---
 ## 🎯 PROJECT OBJECTIVE
@@ -131,8 +131,8 @@ streamlit run loan_app.py
 This project demonstrates how data analysis and interactive visualizations can help understand the factors affecting loan approval. The dashboard provides clear insights into applicant information and loan approval trends.
 ---
 ## 👩‍💻 AUTHOR
-**KAMALJIT KAUR**
-B.Tech Computer Science Engineering Student
+- **KAMALJIT KAUR**
+- B.Tech Computer Science Engineering Student
 ---
 ## ⭐ THANK YOU
 Thank you for visiting this project. I hope you find this project helpful and informative.
