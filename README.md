@@ -1,8 +1,10 @@
 # 🏦 LOAN APPROVAL ANALYSIS PROJECT
-📌 **PROJECT OVERVIEW**
-- This project analysis a loan approval dataset to understand the factors that affect loan approval decisions. The project includes data exploration, data cleaning and interactive visualizations created using Python and Streamlit.
+## 📌 PROJECT OVERVIEW
+
+This project analysis a loan approval dataset to understand the factors that affect loan approval decisions. The project includes data exploration, data cleaning and interactive visualizations created using Python and Streamlit.
 ---
 ## 🎯 PROJECT OBJECTIVE
+
 The main objectives of this project are:
 - Analysis loan applicant data.
 - Identify factors affecting loan approval.
@@ -10,12 +12,14 @@ The main objectives of this project are:
 - Provide meaningful insights from the dataset.
 ---
 ## 📂 DATASET
+
 - **Dataset Name:** LOAN APPROVAL DATASET
 - **SOURCE:** Kaggle
 - **ROWS:** 4269
 - **FEATURES:** 13 Columns including income, loan amount, education, CIBIL score, assets and loan status.
 ---
 ## 🛠️ TECHNOLOGIES USED 
+
 - Python
 - Pandas
 - NumPy
@@ -26,6 +30,7 @@ The main objectives of this project are:
 - GitHub
 ---
 ## 🔄️ PROJECT WORKFLOW
+
 - 📥 Load the dataset
 - 🧹 Clean and preprocess the data
 - 🔍 Explore the dataset
@@ -34,6 +39,7 @@ The main objectives of this project are:
 - 🖥️ Display results using Streamlit
 ---
 ## 📋 DATASET COLUMNS
+
 The dataset contains the following features:
 - Loan ID
 - Number of Dependents
@@ -50,6 +56,7 @@ The dataset contains the following features:
 - Loan Status
 ---
 ## 📊 PROJECT FEATURES
+
 - Data Loading
 - Data Exploration
 - Data Cleaning
@@ -64,6 +71,7 @@ The dataset contains the following features:
 - Interactive Graphs
 ---
 ## 📈 VISUALIZATIONS
+
 The dashboard includes:
 - Box Plot
 - Histogram
@@ -75,6 +83,7 @@ The dashboard includes:
 - Correlation Heatmap
 ---
 ## 📚 PYTHON LIBRARIES
+
 - Pandas
 - NumPy
 - Plotly
@@ -83,12 +92,14 @@ The dashboard includes:
 - Streamlit
 ---
 ## 💡 KEY INSIGHTS
+
 - Applicants with higher CIBIL scores are more likely to receive loan approval.
 - Higher income generally increases the chances of loan approval.
 - Education and assets also influence loan approval decisions.
 - Interactive visualizations make the data easier to understand.
 ---
 ## 🎓 LEARNING OUTCOMES
+
 Through this project, I learned:
 - Data exploration, cleaning and preprocessing
 - Data visualization using Plotly, Matplotlib and Seaborn
@@ -97,6 +108,7 @@ Through this project, I learned:
 - Using GitHub for project management
 ---
 ## 🚀 FUTURE IMPROVEMENTS
+
 - Add more interactive filters.
 - Improve dashboard design.
 - Include additional visualizations.
@@ -115,10 +127,12 @@ pip install -r requirements.txt
 '''
 ### 3. Run the Streamlit application
 '''bash
+
 streamlit run loan_app.py
 '''
 ---
 ## 📁 PROJECT FILES
+
 - 'loan_app.py' - Streamlit application
 - 'loan_approval_dataset.csv' - Dataset
 - 'requirements.txt' - Required libraries
@@ -128,12 +142,15 @@ streamlit run loan_app.py
 ![Loan Approval Dashboard](dashboard.jpeg)
 ---
 ## 📌 CONCLUSION
+
 This project demonstrates how data analysis and interactive visualizations can help understand the factors affecting loan approval. The dashboard provides clear insights into applicant information and loan approval trends.
 ---
 ## 👩‍💻 AUTHOR
+
 - **KAMALJIT KAUR**
 - B.Tech Computer Science Engineering Student
 ---
 ## ⭐ THANK YOU
+
 Thank you for visiting this project. I hope you find this project helpful and informative.
 ---
