@@ -1,6 +1,6 @@
 # 🏦 LOAN APPROVAL ANALYSIS PROJECT
 📌 **PROJECT OVERVIEW**
-This project analysis a loan approval dataset to understand the factors that affect loan approval decisions. The project includes data exploration, data cleaning and interactive visualizations created using Python and Streamlit.
+- This project analysis a loan approval dataset to understand the factors that affect loan approval decisions. The project includes data exploration, data cleaning and interactive visualizations created using Python and Streamlit.
 ---
 ## 🎯 PROJECT OBJECTIVE
 The main objectives of this project are:
