@@ -7,7 +7,6 @@ import plotly.express as px
 st.set_page_config(page_title="🏦 LOAN APPROVAL ANALYSIS DASHBOARD", layout="wide")
 st.sidebar.image("bank_logo.png",width=120)
 st.sidebar.title("LOAN APPROVAL ANALYSIS DASHBOARD")
-st.divider()
 @st.cache_data
 def load_data():
     df=pd.read_csv("loan_approval_dataset.csv")
@@ -20,7 +19,7 @@ menu = st.sidebar.selectbox(
     [
         "🏠 HOME",
         "📂 DATASET",
-        "📊 VISUALIZATION",
+        "📊 EDA ANALYSIS",
         "📌 ABOUT",
     ]
 )
@@ -31,7 +30,6 @@ st.sidebar.write("🔍 Explore Data")
 st.sidebar.write("🧹 Clean Data")
 st.sidebar.write("📊 Visualize Data")
 st.sidebar.write("💡 Generate Insights")
-st.sidebar.write("✅ About The Project")
 st.sidebar.write("🏁 Final Conclusion")
 st.sidebar.divider()
 if menu == "🏠 HOME":
@@ -77,7 +75,16 @@ if menu == "🏠 HOME":
     st.write("- Matplotlib")
     st.write("- Streamlit")
     st.markdown("---")
+    st.subheader("🗂️ DATASET SOURCE")
+    st.markdown("""
+    This dataset was collected from **Kaggle** for educational purposes. This project uses a publicly available dataset for loan approval analysis. It contains loan applicants data for loan approval analysis.
+    - **DATASET NAME:** Loan Approval Prediction Dataset
+    - **SOURCE:** Kaggle
+    - **LINK:** https://www.kaggle.com/datasets/architsharma01/loan-approval-prediction-dataset 
+    """)
+    st.divider()
     st.info("📌 Use the sidebar to explore the Dataset, Data Exploration, Data Preprocessing and About Section.")
+    st.divider()
 elif menu == "📂 DATASET":
     st.title("🏦 LOAN APPROVAL ANALYSIS")
     st.divider()
@@ -162,6 +169,7 @@ elif menu == "📂 DATASET":
     st.write("""
     - Displays the number of missing values in each column.
     - It helps identify incomplete data that may require preprocessing.
+    - No missing values were found in the dataset, so no data imputation was required.
     """)
     st.divider()
     st.subheader("♻️ DUPLICATE VALUES")
@@ -170,15 +178,17 @@ elif menu == "📂 DATASET":
     st.write("""
     - Shows the total number of duplicate records in the dataset.
     - It helps detect repeated entries that could affect analysis accuracy.
+    - No duplicate values were found, so no duplicates were removed.
     """)
     st.divider()
     st.success("✅ Data Preprocessing Completed Successfully")
-elif menu == "📊 VISUALIZATION":
-    st.title("📊 VISUALIZATION")
+elif menu == "📊 EDA ANALYSIS":
+    st.title("📊 EDA ANALYSIS")
     st.info("This section shows the graphical visualization performed on the dataset.")
-    st.subheader("📦 BOX PLOT")
-    fig = px.box(df, x="loan_status", y="income_annum",color="education", points="all",title="Income distribution by Loan status")
-    fig.update_layout(title_x=0.5,template="plotly_white",xaxis_title="Loan Status",yaxis_title="Income Annum",legend_title="Education")
+    st.divider()
+    st.subheader("Income Distribution by Loan Status")
+    fig = px.box(df, x="loan_status", y="income_annum",color="education", points="all")
+    fig.update_layout(template="plotly_white",xaxis_title="Loan Status",yaxis_title="Income Annum",legend_title="Education")
     st.plotly_chart(fig,use_container_width=True)
     st.write("""
     - The graph compares applicant's annual income for Approved and Rejected loan applications.
@@ -188,8 +198,9 @@ elif menu == "📊 VISUALIZATION":
     - It also highlights income variation and outliers, making applicant comparison easier.
     """)
     st.divider()
-    fig = px.box(df, x="loan_status", y="cibil_score",color="education", points="all", title="loan status vs cibil score")
-    fig.update_layout(title_x=0.5,template="plotly_white",xaxis_title="Loan Status",yaxis_title="CIBIL Score",legend_title="Education")
+    st.subheader("Loan Status vs CIBIL Score")
+    fig = px.box(df, x="loan_status", y="cibil_score",color="education", points="all")
+    fig.update_layout(template="plotly_white",xaxis_title="Loan Status",yaxis_title="CIBIL Score",legend_title="Education")
     st.plotly_chart(fig,use_container_width=True)
     st.write("""
     - The graph compares CIBIL scores of applicants with Approved and Rejected loans.
@@ -199,8 +210,9 @@ elif menu == "📊 VISUALIZATION":
     - It also identifies score variations and outliers among applicants.
     """)
     st.divider()
-    fig = px.box(df, y=["residential_assets_value","commercial_assets_value","luxury_assets_value","bank_asset_value"],points="all", title="Distribution of Assets Values and Outliers")
-    fig.update_layout(title_x=0.5,template="plotly_white",xaxis_title="Asset types",yaxis_title="Asset value")
+    st.subheader("Distribution of Assets Values and Outliers")
+    fig = px.box(df, y=["residential_assets_value","commercial_assets_value","luxury_assets_value","bank_asset_value"],points="all")
+    fig.update_layout(template="plotly_white",xaxis_title="Asset types",yaxis_title="Asset value")
     st.plotly_chart(fig,use_container_width=True)
     st.write("""
     - The graph compares the value distribution of residential, commercial, luxury, and bank assets.
@@ -210,9 +222,9 @@ elif menu == "📊 VISUALIZATION":
     - It also detects outliers, which are useful for understanding unusual applicant profiles.
     """)
     st.divider()
-    st.subheader("📊 HISTOGRAM")
-    fig = px.histogram(df, x="income_annum", color="loan_status", text_auto=True,marginal="box", nbins=20, title="Income Distribution")
-    fig.update_layout(title_x=0.5,template="plotly_white",width=1000, height=500,xaxis_title="Income Annum",legend_title="Loan Status")
+    st.subheader("Income Distribution")
+    fig = px.histogram(df, x="income_annum", color="loan_status", text_auto=True,marginal="box", nbins=20)
+    fig.update_layout(template="plotly_white",width=1000, height=500,xaxis_title="Income Annum",legend_title="Loan Status")
     st.plotly_chart(fig,use_container_width=True)
     st.write("""
     - The graph shows how annual income is distributed among all applicants.
@@ -222,8 +234,9 @@ elif menu == "📊 VISUALIZATION":
     - It also shows how loan approval varies across different income levels.
     """)
     st.divider()
-    fig = px.histogram(df, x="cibil_score", color="loan_status", marginal="box",text_auto=True,nbins=30, title="CIBIL Score Distribution")
-    fig.update_layout(title_x=0.5,template="plotly_white",width=1000, height=500,xaxis_title="CIBIL Score",legend_title="Loan Status")
+    st.subheader("CIBIL Score Distribution")
+    fig = px.histogram(df, x="cibil_score", color="loan_status", marginal="box",text_auto=True,nbins=30)
+    fig.update_layout(template="plotly_white",width=1000, height=500,xaxis_title="CIBIL Score",legend_title="Loan Status")
     st.plotly_chart(fig,use_container_width=True)
     st.write("""
     - The graph shows the distribution of CIBIL scores among all loan applicants.
@@ -233,8 +246,9 @@ elif menu == "📊 VISUALIZATION":
     - It also shows how loan approval is related to different CIBIL score ranges.
     """)
     st.divider()
-    fig = px.histogram(df, x="education", color="loan_status", barmode="group",text_auto=True, title="Education vs loan status")
-    fig.update_layout(title_x=0.5,template="plotly_white",xaxis_title="Education level",yaxis_title="Number of Applicants",legend_title="Loan Status")
+    st.subheader("Education vs Loan Status")
+    fig = px.histogram(df, x="education", color="loan_status", barmode="group",text_auto=True)
+    fig.update_layout(template="plotly_white",xaxis_title="Education level",yaxis_title="Number of Applicants",legend_title="Loan Status")
     st.plotly_chart(fig,use_container_width=True)
     st.write("""
     - The graph compares the number of Approved and Rejected loan applications for each education level.
@@ -244,8 +258,9 @@ elif menu == "📊 VISUALIZATION":
     - It provides insight into the relationship between education and loan status.
     """)
     st.divider()
-    fig = px.histogram(df, x="self_employed", color="loan_status", barmode="group",text_auto=True, title="Self employed vs loan status")
-    fig.update_layout(title_x=0.5,template="plotly_white",xaxis_title="Self Employed",yaxis_title="Number of Applicants",legend_title="Loan Status")
+    st.subheader("Self Employed vs Loan Status")
+    fig = px.histogram(df, x="self_employed", color="loan_status", barmode="group",text_auto=True)
+    fig.update_layout(template="plotly_white",xaxis_title="Self Employed",yaxis_title="Number of Applicants",legend_title="Loan Status")
     st.plotly_chart(fig,use_container_width=True)
     st.write("""
     - The graph compares the number of Approved and Rejected loan applications for self-employed and non-self-employed applicants.
@@ -255,9 +270,9 @@ elif menu == "📊 VISUALIZATION":
     - It provides insight into the relationship between self-employment and loan status.
     """)
     st.divider()
-    st.subheader("🔗 PARALLEL COORDINATES")
-    fig=px.parallel_coordinates(df,dimensions=["income_annum","loan_amount","loan_term","cibil_score"],color="cibil_score",color_continuous_scale=px.colors.sequential.Viridis,title="Parallel Coordinations Analysis")
-    fig.update_layout(title_x=0.5,template="plotly_white",coloraxis_colorbar_title="CIBIL Score")
+    st.subheader("Parallel Coordinations Analysis")
+    fig=px.parallel_coordinates(df,dimensions=["income_annum","loan_amount","loan_term","cibil_score"],color="cibil_score",color_continuous_scale=px.colors.sequential.Viridis)
+    fig.update_layout(template="plotly_white",coloraxis_colorbar_title="CIBIL Score")
     st.plotly_chart(fig,use_container_width=True)
     st.write("""
     - The graph compares income, loan amount, loan term, and CIBIL score for each applicant in a single view.
@@ -267,10 +282,10 @@ elif menu == "📊 VISUALIZATION":
     - It makes it easier to identify trends, patterns, and unusual applicant profiles (outliers).
     """)
     st.divider()
-    st.subheader("🌞 SUNBURST GRAPH")
-    fig=px.sunburst(df, path=["education","loan_status","self_employed"],title="Education, Loan status and Employment")
+    st.subheader("Education, Loan status and Employment")
+    fig=px.sunburst(df, path=["education","loan_status","self_employed"])
     fig.update_traces(textinfo="label+percent entry")
-    fig.update_layout(title_x=0.5, template="plotly_white", width=700, height=500,margin=dict(t=50,l=20,r=20,b=20))
+    fig.update_layout(template="plotly_white", width=700, height=500,margin=dict(t=50,l=20,r=20,b=20))
     st.plotly_chart(fig,use_container_width=True)
     st.write("""
     - The graph shows the hierarchical relationship between education, loan status, and self-employment.
@@ -280,10 +295,10 @@ elif menu == "📊 VISUALIZATION":
     - It makes it easier to understand the distribution and relationship between education, employment, and loan status.
     """)
     st.divider()
-    st.subheader("🌳 TREEMAP")
-    fig=px.treemap(df,path=["loan_status","education","self_employed"],title="Loan Status Hierarchy")
+    st.subheader("Loan Status Hierarchy")
+    fig=px.treemap(df,path=["loan_status","education","self_employed"])
     fig.update_traces(textinfo="label+value")
-    fig.update_layout(title_x=0.5,template="plotly_white",margin=dict(t=50,l=20,r=20,b=20))
+    fig.update_layout(template="plotly_white",margin=dict(t=50,l=20,r=20,b=20))
     st.plotly_chart(fig,use_container_width=True)
     st.write("""
     - The graph shows the hierarchical distribution of applicants by loan status, education, and self-employment.
@@ -293,10 +308,10 @@ elif menu == "📊 VISUALIZATION":
     - It helps compare the size and distribution of different applicant groups quickly.
     """)
     st.divider()
-    st.subheader("🥧 PIE GRAPH")
-    fig = px.pie(df, names="education", title="Education Distribution",hole=0.4)
+    st.subheader("Education Distribution")
+    fig = px.pie(df, names="education", hole=0.4)
     fig.update_traces(textinfo="percent+label")
-    fig.update_layout(title_x=0.5, template="plotly_white", width=700, height=500,legend_title="Education")
+    fig.update_layout(template="plotly_white", width=700, height=500,legend_title="Education")
     st.plotly_chart(fig,use_container_width=True)
     st.write("""
     - The graph shows the percentage distribution of applicants across different education levels.
@@ -306,9 +321,10 @@ elif menu == "📊 VISUALIZATION":
     - It makes category comparison simple and visually clear.
     """)
     st.divider()
-    fig = px.pie(df, names="self_employed", title="Self Employed",hole=0.4)
+    st.subheader("Self Employed")
+    fig = px.pie(df, names="self_employed",hole=0.4)
     fig.update_traces(textinfo="percent+label")
-    fig.update_layout(title_x=0.5, template="plotly_white", width=700, height=500,legend_title="Eployment Status")
+    fig.update_layout(template="plotly_white", width=700, height=500,legend_title="Eployment Status")
     st.plotly_chart(fig,use_container_width=True)
     st.write("""
     - The graph shows the percentage distribution of self-employed and non-self-employed applicants.
@@ -318,9 +334,9 @@ elif menu == "📊 VISUALIZATION":
     - It makes it easy to compare self-employed and non-self-employed groups at a glance.
     """)
     st.divider()
-    st.subheader("🎯 SCATTER GRAPH")
-    fig = px.scatter(df, x="income_annum", y="loan_amount", color="loan_status", size="cibil_score", symbol="education", title="Relationship between income annum and loan amount")
-    fig.update_layout( title_x=0.5,template="plotly_white",xaxis_title="Annual Income",yaxis_title="Loan Amount",legend_title="Loan Status",width=1200,height=700)
+    st.subheader("Relationship between Income Annum and Loan Amount")
+    fig = px.scatter(df, x="income_annum", y="loan_amount", color="loan_status", size="cibil_score", symbol="education")
+    fig.update_layout(template="plotly_white",xaxis_title="Annual Income",yaxis_title="Loan Amount",legend_title="Loan Status",width=1200,height=700)
     fig.update_traces(marker=dict(line=dict(width=1)))
     st.plotly_chart(fig,use_container_width=True)
     st.write("""
@@ -331,7 +347,7 @@ elif menu == "📊 VISUALIZATION":
     - It combines multiple applicant attributes in one graph, making comparison easier.
     """)
     st.divider()
-    st.subheader("🔥 HEATMAP GRAPH")
+    st.subheader("Relationship between Numerical Features")
     fig,ax=plt.subplots(figsize=(12,8))
     corr=df.select_dtypes(include="number").corr()
     sns.heatmap(corr, annot=True,cmap="coolwarm",ax=ax)
@@ -352,6 +368,14 @@ elif menu == "📌 ABOUT":
     - This project analyzes the Loan Approval Dataset using Python and Streamlit.
     - Data exploration, preprocessing, and interactive visualizations were used to understand the dataset and identify important patterns.
     - The dashboard presents the analysis in a simple, clear, and user-friendly way, making it easier to understand the factors related to loan approval.
+    """)
+    st.divider()
+    st.subheader("🗂️ DATASET SOURCE")
+    st.markdown("""
+    This dataset was collected from **Kaggle** for educational purposes. This project uses a publicly available dataset for loan approval analysis. It contains loan applicants data for loan approval analysis.
+    - **DATASET NAME:** Loan Approval Prediction Dataset
+    - **SOURCE:** Kaggle
+    - **LINK:** https://www.kaggle.com/datasets/architsharma01/loan-approval-prediction-dataset 
     """)
     st.divider()
     st.subheader("💡 KEY FINDING")
