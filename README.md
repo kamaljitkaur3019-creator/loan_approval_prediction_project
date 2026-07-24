@@ -1,6 +1,6 @@
 # 🏦 LOAN APPROVAL ANALYSIS PROJECT
 ## 📌 PROJECT OVERVIEW
-This project analyzes a loan approval dataset to understand the factors that affect loan approval decisions. It includes data exploration, data cleaning and interactive visualizations created using Python and Streamlit.
+#### This project analyzes a loan approval dataset to understand the factors that affect loan approval decisions. It includes data exploration, data cleaning and interactive visualizations created using Python and Streamlit.
 ---
 ## 🎯 PROJECT OBJECTIVE
 The main objectives of this project are:
@@ -105,14 +105,11 @@ Through this project, I learned:
 ---
 ## ▶️ HOW TO RUN THE PROJECT
 ### 1. Clone the repository
-'''bash git clone https://github.com/kamaljitkaur3019-creator/loan_approval_prediction_project.git
-'''
+'''git clone: https://github.com/kamaljitkaur3019-creator/loan_approval_prediction_project.git'''
 ### 2. Install the required libraries
-'''bash pip install -r requirements.txt
-'''
+'''pip install -r requirements.txt'''
 ### 3. Run the Streamlit application
-'''bash streamlit run loan_app.py
-'''
+'''streamlit run loan_app.py'''
 ---
 ## 📁 PROJECT FILES
 - 'loan_app.py' - Streamlit application
@@ -124,12 +121,12 @@ Through this project, I learned:
 ![Loan Approval Dashboard](dashboard.jpeg)
 ---
 ## 📌 CONCLUSION
-##### This project demonstrates how data analysis and interactive visualizations can help understand the factors affecting loan approval. The dashboard provides clear insights into applicant information and loan approval trends.
+#### This project demonstrates how data analysis and interactive visualizations can help understand the factors affecting loan approval. The dashboard provides clear insights into applicant information and loan approval trends.
 ---
 ## 👩‍💻 AUTHOR
 - **KAMALJIT KAUR**
 - B.Tech Computer Science Engineering Student
 ---
 ## ⭐ THANK YOU
-##### Thank you for visiting this project. I hope you find this project helpful and informative.
+#### Thank you for visiting this project. I hope you find this project helpful and informative.
 ---
